@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MyPortfolio.Models.Project>
+@{
+    ViewData["Title"] = "Projects";
+}
+<h2>My Projects</h2>
+<div class="row">
+    @foreach (var project in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">@project.Name</h5>
+                    <p class="card-text">@project.Description</p>
+                    <a href="@project.GitHubLink" class="btn btn-primary" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
