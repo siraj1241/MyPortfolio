@@ -33,7 +33,7 @@ namespace MyPortfolio.Controllers
             }
 
             // Hash the password before saving to the database
-            //model.Password = PasswordHelper.HashPassword(model.Password);
+            model.Password = MyPortfolio.Models.User.HashPassword(model.Password);//PasswordHelper.HashPassword(model.Password);
 
             _context.Users.Add(model);
             await _context.SaveChangesAsync();
