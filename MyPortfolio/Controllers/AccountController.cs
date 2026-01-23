@@ -50,8 +50,8 @@ namespace MyPortfolio.Controllers
         public async Task<IActionResult> Login(User model)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
-
-            if (user != null && user.Password == model.Password) // Use hashed password verification in production
+            model.Password = MyPortfolio.Models.User.HashPassword(model.Password);
+            if (user != null && model.Password == user.Password)
             {
                 var claims = new List<Claim>
         {
